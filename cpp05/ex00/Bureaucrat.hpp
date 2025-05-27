@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 10:44:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/27 13:06:28 by agorski          ###   ########.fr       */
+/*   Updated: 2025/05/27 14:28:19 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ class Bureaucrat
             };
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif
