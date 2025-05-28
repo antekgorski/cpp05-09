@@ -6,12 +6,12 @@
 #    By: agorski <agorski@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/22 10:43:01 by agorski           #+#    #+#              #
-#    Updated: 2025/05/26 14:08:57 by agorski          ###   ########.fr        #
+#    Updated: 2025/05/28 14:16:12 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Form.cpp Bureaucrat.cpp
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)

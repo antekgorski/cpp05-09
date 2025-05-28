@@ -6,11 +6,12 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 10:43:21 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/27 13:23:26 by agorski          ###   ########.fr       */
+/*   Updated: 2025/05/28 16:29:40 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
@@ -53,4 +54,17 @@ catch (std::exception & e)
         std::cout << "Exception cath Decrement value out of range: " << e.what() << std::endl;
     }
 
+//FORM TEST
+std::cout << std::endl << "Form test" << std::endl;
+
+        Bureaucrat robocop("robocop", 51);
+        Form autodestruction("autodestruction", 50, 50);
+        std::cout << "Bureaucrat: " << robocop << std::endl;
+        std::cout << "Form: " << autodestruction << std::endl;
+        robocop.signForm(autodestruction);
+        std::cout << "Form after signing: " << autodestruction << std::endl;
+        robocop.Increment();
+        robocop.Increment();
+        robocop.signForm(autodestruction);
+        std::cout << "Form after signing: " << autodestruction << std::endl;
 }

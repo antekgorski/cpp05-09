@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 10:44:01 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/27 14:28:12 by agorski          ###   ########.fr       */
+/*   Updated: 2025/05/28 14:33:27 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+
+class Form; // Forward declaration of Form class tolks compilator that Form is a class that will be defined later.
 
 class Bureaucrat
 {
@@ -32,6 +34,7 @@ class Bureaucrat
         int getGrade() const;
         void Increment();
         void Decrement();
+        void signForm(Form& form);
 
         class GradeTooHighException : public std::exception
             {

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:22:47 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/27 14:34:59 by agorski          ###   ########.fr       */
+/*   Updated: 2025/05/28 14:26:42 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <iostream>
 # include <string>
-# include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -26,16 +27,22 @@ class Form
         const int GradeToExecute_;
         Form& operator=(const Form& other);//block becouse i have const...
         
-    public:
+        public:
         Form();
         Form(std::string Name, int GradeToSign, int GradeToExecute);
         Form(const Form& other);
         ~Form();
         
+        const std::string& getName() const;
+        const bool& getSigned() const;
+        const int& getGradeToSign() const;
+        const int& getGradeToExecute() const;
+        
+        void setSigned(bool signedStatus);
         void beSigned(Bureaucrat& bureaucrat);
-
+        
         class GradeTooHighException : public std::exception
-            {
+        {
                 public:
                     virtual const char* what() const throw();
             };
