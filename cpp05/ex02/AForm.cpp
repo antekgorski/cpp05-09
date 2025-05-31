@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:22:26 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/28 17:04:06 by agorski          ###   ########.fr       */
+/*   Updated: 2025/05/30 14:29:52 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
         this->setSigned(true);
     std::cout << bureaucrat.getName() << " signed " << this->getName() << "Form" << std::endl;
 }
+
+ void execute(Bureaucrat const & executor) const
+ {
+    
+ }
 
 const std::string &AForm::getName() const
 {

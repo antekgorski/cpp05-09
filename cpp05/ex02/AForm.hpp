@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:22:47 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/28 16:58:24 by agorski          ###   ########.fr       */
+/*   Updated: 2025/05/30 14:29:30 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class AForm
         
         void setSigned(bool signedStatus);
         void beSigned(Bureaucrat& bureaucrat);
+        void execute(Bureaucrat const & executor) const;
         
         class GradeTooHighException : public std::exception
         {
