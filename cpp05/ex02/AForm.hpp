@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42warsaw.pl>      +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:22:47 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/30 14:29:30 by agorski          ###   ########.fr       */
+/*   Updated: 2025/06/13 19:02:27 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class AForm
         bool Signed_;
         const int GradeToSign_;
         const int GradeToExecute_;
+        virtual void FormAction() const = 0;// pure virtual function, making AForm an abstract class and add action to be defined in derived classes.
         AForm& operator=(const AForm& other);//block becouse i have const...
         
         public:
@@ -32,8 +33,6 @@ class AForm
         AForm(std::string Name, int GradeToSign, int GradeToExecute);
         AForm(const AForm& other);
         ~AForm();
-
-        virtual void abstract() const = 0; // Making AForm an abstract class
         
         const std::string& getName() const;
         const bool& getSigned() const;
@@ -50,6 +49,11 @@ class AForm
                     virtual const char* what() const throw();
             };
         class GradeTooLowException : public std::exception
+            {
+                public:
+                    virtual const char* what() const throw();
+            };
+        class IsNoSignedException : public std::exception
             {
                 public:
                     virtual const char* what() const throw();

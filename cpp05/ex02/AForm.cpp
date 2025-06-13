@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:22:26 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/31 21:03:34 by agorski          ###   ########.fr       */
+/*   Updated: 2025/06/13 17:46:39 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ const char *AForm::GradeTooLowException::what() const throw()
     return "Form grade is too low!";
 }
 
+const char *AForm::IsNoSignedException::what() const throw()
+{
+    return "Form is not signed!";
+}
+
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() > this->getGradeToSign())
@@ -50,7 +55,11 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 
  void AForm::execute(Bureaucrat const & executor) const
  {
-    
+    if (!Signed_)
+        throw AForm::IsNoSignedException();
+    if (executor.getGrade() > this->getGradeToExecute())
+        throw AForm::GradeTooHighException();
+    FormAction();
  }
 
 const std::string &AForm::getName() const
