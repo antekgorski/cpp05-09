@@ -1,3 +1,4 @@
+// Copyright 2025 Antoni Gorski
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -10,22 +11,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef CPP05_EX02_ROBOTOMYREQUESTFORM_HPP_
+#define CPP05_EX02_ROBOTOMYREQUESTFORM_HPP_
 
-#include "AForm.hpp"
+#include <string>
+#include "/AForm.hpp"
 
-class RobotomyRequestForm : public AForm
-{
-private:
-    virtual void FormAction() const; // Implementation of the pure virtual function from AForm.
+class RobotomyRequestForm : public AForm {
+ private:
+// Implementation of the pure virtual function from AForm.
+    virtual void FormAction() const;
     const std::string Target_;
     RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
-    public:
+
+ public:
     RobotomyRequestForm();
-    RobotomyRequestForm(const std::string &target);
+    explicit RobotomyRequestForm(const std::string &target);
     RobotomyRequestForm(const RobotomyRequestForm &other);
-    ~RobotomyRequestForm();  
+    ~RobotomyRequestForm();
 };
 
-#endif
+#endif  // CPP05_EX02_ROBOTOMYREQUESTFORM_HPP_

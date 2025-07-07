@@ -1,3 +1,4 @@
+// Copyright 2025 Antoni Gorski
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -10,22 +11,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef CPP05_EX02_PRESIDENTIALPARDONFORM_HPP_
+#define CPP05_EX02_PRESIDENTIALPARDONFORM_HPP_
 
-#include "AForm.hpp"
+#include <string>
+#include "/AForm.hpp"
 
-class PresidentialPardonForm
-{
-private:
-    virtual void FormAction() const; // Implementation of the pure virtual function from AForm.
+class PresidentialPardonForm {
+ private:
+// Implementation of the pure virtual function from AForm.
+    virtual void FormAction() const;
     const std::string Target_;
     PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
-    public:
+ public:
     PresidentialPardonForm();
-    PresidentialPardonForm(const std::string &target);
+    explicit PresidentialPardonForm(const std::string &target);
     PresidentialPardonForm(const PresidentialPardonForm &other);
     ~PresidentialPardonForm();
 };
 
-#endif
+#endif  // CPP05_EX02_PRESIDENTIALPARDONFORM_HPP_
