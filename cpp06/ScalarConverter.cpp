@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 13:22:29 by agorski           #+#    #+#             */
-/*   Updated: 2025/07/14 17:25:33 by agorski          ###   ########.fr       */
+/*   Updated: 2025/07/14 17:33:17 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ ScalarConverter::~ScalarConverter() {
 void ScalarConverter::convert(std::string value) {
     double temp;
     
+//tead obout static cast and see code :
+//https://github.com/cheroualiyakoub/42-CPP06/blob/main/ex00/src/ScalarConverter.cpp
+
     this->char_ = 0;
     this->int_ = 0;
     this->float_ = 0;
