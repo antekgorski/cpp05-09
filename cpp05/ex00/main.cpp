@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 10:43:21 by agorski           #+#    #+#             */
-/*   Updated: 2025/05/27 13:23:26 by agorski          ###   ########.fr       */
+/*   Updated: 2025/07/13 13:38:32 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 std::cout << "constructor test" << std::endl;
 try
     {
-        Bureaucrat test1("test1", 129);
+        Bureaucrat test1("test1", 151);
         std::cout<< "Constructor value ok: " << test1;
     }
 catch (std::exception & e)
@@ -30,7 +30,7 @@ catch (std::exception & e)
 std::cout << std::endl << "Increment test" << std::endl;
 try
     {
-        Bureaucrat test2("test2", 10);
+        Bureaucrat test2("test2", 1);
         std::cout << "Before increment: " << test2;
         test2.Increment();
         std::cout << "After increment: " << test2;

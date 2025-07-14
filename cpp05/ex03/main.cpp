@@ -16,33 +16,35 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 #include <ctime>
 #include <cstdlib>
 
 int main() {
-    std::srand(std::time(0));
+    Intern intern;
+    Bureaucrat bureaucrat("John", 1);
+    AForm *form;
+    std::srand(static_cast<unsigned int>(std::time(0))); // Seed for random number generation
     try {
-        Bureaucrat bureaucrat("John", 1); // Highest grade
-        std::cout << bureaucrat;
+        form = intern.makeForm("PresidentialPardonForm", "Alice");
+        bureaucrat.signForm(*form);
+        bureaucrat.executeForm(*form);
+        delete form;
 
-        AForm *form1 = new PresidentialPardonForm("Alice");
-        bureaucrat.signForm(*form1);
-        bureaucrat.executeForm(*form1);
-        delete form1;
+        form = intern.makeForm("RobotomyRequestForm", "Bob");
+        bureaucrat.signForm(*form);
+        bureaucrat.executeForm(*form);
+        delete form;
 
-        AForm *form2 = new RobotomyRequestForm("Bob");
-        bureaucrat.signForm(*form2);
-        bureaucrat.executeForm(*form2);
-        delete form2;
+        form = intern.makeForm("ShrubberyCreationForm", "Charlie");
+        bureaucrat.signForm(*form);
+        bureaucrat.executeForm(*form);
+        delete form;
 
-        AForm *form3 = new ShrubberyCreationForm("Garden");
-        bureaucrat.signForm(*form3);
-        bureaucrat.executeForm(*form3);
-        delete form3;
-
+        // Attempt to create a non-existent form
+        form = intern.makeForm("NonExistentForm", "Dave");
+        delete form; // This line should not be reached
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
-
-    return 0;
 }

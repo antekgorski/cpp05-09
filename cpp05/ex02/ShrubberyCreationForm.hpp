@@ -16,8 +16,7 @@
 
 #include "AForm.hpp"
 
-class  ShrubberyCreationForm
-{
+class  ShrubberyCreationForm : public AForm {
 private:
     virtual void FormAction() const; // Implementation of the pure virtual function from AForm.
     const std::string Target_;
