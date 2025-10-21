@@ -2,6 +2,8 @@
 #define SPAN_HPP
 
 #include <vector>
+#include <algorithm>
+#include <stdexcept>
 
 class Span {
     public:
@@ -12,13 +14,13 @@ class Span {
         ~Span();
 
         void addNumber(int number);
-        int shortestSpan();
-        int longestSpan();
+        int shortestSpan() const;
+        int longestSpan() const;
+        void rangeOfNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
     private:
         unsigned int _N;
-        std::vector<int> _Numbers;
-
+        std::vector<int> _span;
 };
 
 #endif

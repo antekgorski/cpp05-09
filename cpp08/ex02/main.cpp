@@ -5,35 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 11:13:27 by agorski           #+#    #+#             */
-/*   Updated: 2025/10/21 12:18:50 by agorski          ###   ########.fr       */
+/*   Created: 2025/10/21 12:13:10 by agorski           #+#    #+#             */
+/*   Updated: 2025/10/21 12:17:21 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "span.hpp"
 #include <iostream>
-#include <vector>
-
+#include "MutantStack.hpp"
 
 int main()
 {
-Span sp = Span(100);
-sp.addNumber(6);
-sp.addNumber(3);
-sp.addNumber(17);
-sp.addNumber(9);
-sp.addNumber(11);
-std::cout << sp.shortestSpan() << std::endl;
-std::cout << sp.longestSpan() << std::endl;
-
-std::cout << "test rangeOfNumbers" << std::endl;
-
-
-std::vector<int> vec;
-for (int i = 0; i < 1000; i++)
-    vec.push_back(i * 30);
-sp.rangeOfNumbers(vec.begin(), vec.end());
-std::cout << sp.shortestSpan() << std::endl;
-std::cout << sp.longestSpan() << std::endl;
+MutantStack<int> mstack;
+mstack.push(5);
+mstack.push(17);
+std::cout << mstack.top() << std::endl;
+mstack.pop();
+std::cout << mstack.size() << std::endl;
+mstack.push(3);
+mstack.push(5);
+mstack.push(737);
+//[...]
+mstack.push(0);
+MutantStack<int>::iterator it = mstack.begin();
+MutantStack<int>::iterator ite = mstack.end();
+++it;
+--it;
+while (it != ite)
+{
+std::cout << *it << std::endl;
+++it;
+}
+std::stack<int> s(mstack);
 return 0;
 }
