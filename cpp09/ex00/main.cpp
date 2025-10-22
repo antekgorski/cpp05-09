@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:40:12 by agorski           #+#    #+#             */
-/*   Updated: 2025/10/22 12:48:54 by agorski          ###   ########.fr       */
+/*   Updated: 2025/10/22 15:16:38 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     {
     BitcoinExchange btc;
     btc.loadData("data.csv");
-    btc.inputProcessing(argc, argv[1]);
+    btc.loadInput(argc, argv[1]);
     }
     catch (const std::exception &e)
     {
