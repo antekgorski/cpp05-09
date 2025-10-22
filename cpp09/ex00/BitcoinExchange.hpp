@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:43:14 by agorski           #+#    #+#             */
-/*   Updated: 2025/10/22 15:18:09 by agorski          ###   ########.fr       */
+/*   Updated: 2025/10/22 16:29:10 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ private:
     BitcoinExchange(const BitcoinExchange &other);
     BitcoinExchange &operator=(const BitcoinExchange &other);
     void processingLine(std::string &line);
+    bool inputFormatIsValid(const std::string &strValue, const std::string &date);
     
 public:
     BitcoinExchange();
