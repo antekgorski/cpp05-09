@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    BitcoinExchange.hpp                               :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:43:14 by agorski           #+#    #+#             */
-/*   Updated: 2025/10/22 12:48:38 by agorski          ###   ########.fr       */
+/*   Updated: 2025/10/22 13:01:45 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ public:
     void inputProcessing(const int argc, const std::string &filename);
     
 private:
-    
 };
 
 #endif
