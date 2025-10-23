@@ -1,5 +1,12 @@
 {
     "files.associations": {
+        "*.hpp": "cpp",
+        "*.cpp": "cpp",
+        "iostream": "cpp",
+        "fstream": "cpp",
+        "map": "cpp",
+        "string": "cpp",
+        "sstream": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
@@ -16,7 +23,6 @@
         "concepts": "cpp",
         "cstdint": "cpp",
         "deque": "cpp",
-        "map": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
         "exception": "cpp",
@@ -28,16 +34,13 @@
         "numeric": "cpp",
         "optional": "cpp",
         "random": "cpp",
-        "string": "cpp",
         "string_view": "cpp",
         "system_error": "cpp",
         "tuple": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
-        "fstream": "cpp",
         "initializer_list": "cpp",
         "iosfwd": "cpp",
-        "iostream": "cpp",
         "istream": "cpp",
         "limits": "cpp",
         "new": "cpp",
@@ -45,9 +48,13 @@
         "ostream": "cpp",
         "ranges": "cpp",
         "span": "cpp",
-        "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "C_Cpp.default.cppStandard": "c++98",
+    "C_Cpp.default.compilerPath": "/usr/bin/c++",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**"
+    ]
 }

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:43:14 by agorski           #+#    #+#             */
-/*   Updated: 2025/10/22 18:26:46 by agorski          ###   ########.fr       */
+/*   Updated: 2025/10/23 15:16:25 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sstream>
 #include <string>
 #include <map>
+#include <cstdlib>
 
 class BitcoinExchange
 {
@@ -27,15 +28,13 @@ private:
     BitcoinExchange(const BitcoinExchange &other);
     BitcoinExchange &operator=(const BitcoinExchange &other);
     void processingLine(std::string &line);
-    void inputFormatIsValid(const std::string &strValue, const std::string &date);
+    float inputFormatIsValid(const std::string &strValue, const std::string &date);
     
 public:
     BitcoinExchange();
     ~BitcoinExchange();
     void loadData(const std::string &filename);
     void loadInput(const int argc, const std::string &filename);
-    
-private:
 };
 
 #endif
