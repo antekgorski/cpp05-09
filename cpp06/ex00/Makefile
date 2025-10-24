@@ -6,12 +6,12 @@
 #    By: agorski <agorski@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/14 13:15:33 by agorski           #+#    #+#              #
-#    Updated: 2025/07/14 13:16:32 by agorski          ###   ########.fr        #
+#    Updated: 2025/10/15 13:39:42 by agorski          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = scalarconverter
+NAME = convert
 SRC = main.cpp ScalarConverter.cpp
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
