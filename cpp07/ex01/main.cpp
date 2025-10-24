@@ -45,7 +45,7 @@ int main() {
     iter(constArr, 3, print<int>);
     std::cout << std::endl;
     
-     //iter(constArr, 3, increment<int>); // Odkomentuj - błąd kompilacji!
+     //iter(constArr, 3, increment<int>); // Uncomment - compilation error!
     
     return 0;
 }
