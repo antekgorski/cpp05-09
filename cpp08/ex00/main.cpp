@@ -83,6 +83,6 @@ int main()
 {
 	test_vector();
 	test_list();
-	// Możesz dodać tutaj testy dla innych kontenerów, np. std::deque
+	// You can add tests for other containers here, e.g. std::deque
 	return 0;
 }
