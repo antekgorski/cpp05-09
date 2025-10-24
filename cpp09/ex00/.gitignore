@@ -1,6 +1,6 @@
-# data.csv
-# input.txt
-# *.o
-# *.out
-# .vscode/
+data.csv
+input.txt
+*.o
+*.out
+.vscode/
 
