@@ -85,7 +85,7 @@ void BitcoinExchange::processingLine(std::string &line)
         std::cout << value * it->second << std::endl;
     }
     else
-        throw std::runtime_error("this date is to early");
+        throw std::runtime_error("this date is too early");
     }
     catch (const std::exception &e)
     {
