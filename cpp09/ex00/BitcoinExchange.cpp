@@ -99,7 +99,7 @@ void BitcoinExchange::loadInput(const int argc, const std::string &filename)
         throw std::runtime_error("Usage ./btc <input_file>");
     std::ifstream    file(filename.c_str());
     if (!file.is_open())
-        throw std::runtime_error("File open imput error");
+        throw std::runtime_error("File open input error");
     
     std::string line;
     while (std::getline(file, line))
