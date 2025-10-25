@@ -1,7 +1,7 @@
 NAME = RPN
 SRC = main.cpp  RPN.cpp
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)
 RM = rm -f
 
