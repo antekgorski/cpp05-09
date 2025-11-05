@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:06 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/05 12:36:23 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/05 14:25:54 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ class PmergeMe
         ~PmergeMe();
         
     public:
+
+        template <typename container>
+        container FordJohnsonSort(container& input);
 
         PmergeMe(char **argv);
         void parseInput(char **argv);

@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:03 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/05 14:21:53 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/05 14:26:30 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ large = FordJohnsonSort(large);
 // 3. Merge "small" and "large"
 mainChain = large;
 
+}
 
 PmergeMe::PmergeMe(char **argv)
 {
