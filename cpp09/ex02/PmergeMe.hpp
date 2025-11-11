@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: antek <antek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:06 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/07 16:57:37 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/08 20:58:50 by antek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class PmergeMe
     private:
         container _data;
         container _sortedData;
+        static const int* _JacobsonArray[13];
 
         PmergeMe();
         PmergeMe(const PmergeMe& other);
@@ -115,6 +116,37 @@ large = FordJohnsonSort(large);
 // 3. Merge "small" and "large"
 mainChain = large;
 
+//i must implement smtfing like this:
+// template <typename Container>
+// void insertSmallWithJacobson(Container &large, Container &small, const int* JacobsonArray, size_t jacobSize)
+// {
+//     std::vector<bool> inserted(small.size(), false); // śledzimy które elementy już wstawiliśmy
+
+//     // 1️⃣ wstaw elementy według Jacobsthala
+//     for (size_t i = 0; i < jacobSize; ++i)
+//     {
+//         size_t idx = JacobsonArray[i];
+//         if (idx >= small.size()) break; // nie wychodzimy poza small
+//         if (inserted[idx]) continue;   // jeśli już wstawiony, pomijamy
+
+//         typename Container::iterator pos = std::lower_bound(large.begin(), large.end(), small[idx]);
+//         large.insert(pos, small[idx]);
+//         inserted[idx] = true;
+//     }
+
+//     // 2️⃣ wstaw pozostałe elementy
+//     for (size_t i = 0; i < small.size(); ++i)
+//     {
+//         if (!inserted[i])
+//         {
+//             typename Container::iterator pos = std::lower_bound(large.begin(), large.end(), small[i]);
+//             large.insert(pos, small[i]);
+//         }
+//     }
+
+//     // opcjonalnie: wyczyść small, bo wszystkie elementy zostały wstawione
+//     small.clear();
+// }
 
 
 return mainChain;
