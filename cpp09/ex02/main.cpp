@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:09 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/07 18:07:01 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/11 21:26:16 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)
+    if (argc < 2 || argc > 3000)
     {
-        std::cerr << "Error: Not enough arguments" << std::endl;
+        std::cerr << "Error: bad number's of arguments" << std::endl;
         return 1;
     }
     

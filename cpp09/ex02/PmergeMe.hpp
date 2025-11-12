@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:06 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/11 17:52:09 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/12 02:46:09 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 #include <climits>
 #include <stdexcept>
 
+#define MAX_SIZE 3000
+#define MAX_SMALL 1500
+
 template <typename container>
 class PmergeMe
 {
     private:
         container _data;
         container _sortedData;
-        static const int* _JacobsonArray[13];
 
         PmergeMe();
         PmergeMe(const PmergeMe& other);
@@ -88,12 +90,18 @@ if (input.size() <= 1)
 
 container small, large, mainChain;
 
+small.clear();
+large.clear();
+
 typename container::size_type i = 0;
 while (i + 1 < input.size())
 {
     if (input[i] < input[i + 1])
     {
         small.push_back(input[i]);
+// container small, large, mainChain;
+
+// typename container::size_type i = 0;
         large.push_back(input[i + 1]);
     }
     else
@@ -113,41 +121,36 @@ if (input.size() % 2 != 0)
 // 2. Sort "large" elements recursively
 large = FordJohnsonSort(large);
 
-// 3. Merge "small" and "large"
-mainChain = large;
+int JacobsonArray[12] = { 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731 };
 
-//i must implement smtfing like this:
-// template <typename Container>
-// void insertSmallWithJacobson(Container &large, Container &small, const int* JacobsonArray, size_t jacobSize)
-// {
-//     std::vector<bool> inserted(small.size(), false); // śledzimy które elementy już wstawiliśmy
+// 3. Insert "small" elements into "large" using Jacobson's sequence
 
-//     // 1️⃣ wstaw elementy według Jacobsthala
-//     for (size_t i = 0; i < jacobSize; ++i)
-//     {
-//         size_t idx = JacobsonArray[i];
-//         if (idx >= small.size()) break; // nie wychodzimy poza small
-//         if (inserted[idx]) continue;   // jeśli już wstawiony, pomijamy
-
-//         typename Container::iterator pos = std::lower_bound(large.begin(), large.end(), small[idx]);
-//         large.insert(pos, small[idx]);
-//         inserted[idx] = true;
-//     }
-
-//     // 2️⃣ wstaw pozostałe elementy
-//     for (size_t i = 0; i < small.size(); ++i)
-//     {
-//         if (!inserted[i])
-//         {
-//             typename Container::iterator pos = std::lower_bound(large.begin(), large.end(), small[i]);
-//             large.insert(pos, small[i]);
-//         }
-//     }
-
-//     // opcjonalnie: wyczyść small, bo wszystkie elementy zostały wstawione
-//     small.clear();
-// }
-
+for (size_t j = 0; j < 12; ++j)
+{
+    size_t prev = (j == 0) ? 0 : JacobsonArray[j - 1];
+    size_t elementsToInsert = JacobsonArray[j] - prev;
+    int sizeOfSmall = small.size();
+    if (sizeOfSmall < JacobsonArray[j])
+    {
+        elementsToInsert = sizeOfSmall - prev;
+        JacobsonArray[j] = sizeOfSmall;
+    }
+    for (size_t k = elementsToInsert; k > 0; --k)
+    {
+        // size_t indexS = prev;
+        // typename container::iterator itS = large.begin();
+        // std::advance(itS, indexS);
+        
+        // size_t indexF = JacobsonArray[j];
+        // typename container::iterator itF = large.begin();
+        // std::advance(itF, indexF);
+        
+        typename container::iterator pos =
+            std::lower_bound(large.begin(), large.end(), small[prev + k - 1]);
+        large.insert(pos, small[prev + k - 1]);
+        mainChain = large;
+    }
+}
 
 return mainChain;
 };
