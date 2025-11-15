@@ -6,7 +6,7 @@
 /*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:09 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/15 20:06:30 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/15 20:09:17 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     // vectorSorter.printData(vectorSorter.getData());
     dequeSorter.printData(dequeSorter.getData());
     std::cout << std::endl;
-    std::cout <<  << "After:" << '\t';
+    std::cout << "After:" << '\t';
     vectorSorter.printData(sortedVector);
     // dequeSorter.printData(sortedDeque);
 
