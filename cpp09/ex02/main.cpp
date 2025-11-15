@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: antek <antek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:09 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/11 21:26:16 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/12 19:06:43 by antek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int main(int argc, char **argv)
     
     clock_t dStart, dEnd;
     dStart = clock();
-    PmergeMe< std::deque<int> > dequeSorter(argv);
-    std::deque<int> sortedDeque = dequeSorter.FordJohnsonSort(dequeSorter.getData());
+   // PmergeMe< std::deque<int> > dequeSorter(argv);
+   // std::deque<int> sortedDeque = dequeSorter.FordJohnsonSort(dequeSorter.getData());
     dEnd = clock();
     double dDuration = static_cast<double>(dEnd - dStart) / CLOCKS_PER_SEC * 1000000;
     

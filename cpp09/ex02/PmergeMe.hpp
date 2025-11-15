@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
+/*   By: antek <antek@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:06 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/12 03:14:57 by agorski          ###   ########.fr       */
+/*   Updated: 2025/11/13 01:21:31 by antek            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,16 @@ while (i + 1 < input.size())
     if (input[i] < input[i + 1])
     {
         small.push_back(input[i]);
-// container small, large, mainChain;
-
-// typename container::size_type i = 0;
+        std::cout << "small insert: " << input[i] << std::endl;
         large.push_back(input[i + 1]);
+        std::cout << "large insert: " << input[i + 1] << std::endl;
     }
     else
     {
         small.push_back(input[i + 1]);
+        std::cout << "large insert: " << input[i] << std::endl;
         large.push_back(input[i]);
+        std::cout << "small insert: " << input[i + 1] << std::endl;
     }
     i += 2;
 }
@@ -116,6 +117,7 @@ while (i + 1 < input.size())
 if (input.size() % 2 != 0)
 {
     small.push_back(input.back());
+    std::cout << "odd small insert: " << input.back() << std::endl;
 }
 
 // 2. Sort "large" elements recursively
@@ -125,6 +127,7 @@ int JacobsonArray[12] = { 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731 };
 
 // 3. Insert "small" elements into "large" using Jacobson's sequence
 
+//set range for lower_bound search
 for (size_t j = 0; j < 12; ++j)
 {
     size_t prev = (j == 0) ? 0 : JacobsonArray[j - 1];
@@ -136,22 +139,25 @@ for (size_t j = 0; j < 12; ++j)
         JacobsonArray[j] = sizeOfSmall;
     }
     for (size_t k = elementsToInsert; k > 0; --k)
-    {
-        // size_t indexS = prev;
-        // typename container::iterator itS = large.begin();
-        // std::advance(itS, indexS);
+    {          
+        std::cout << "large order: ";
         
-        // size_t indexF = JacobsonArray[j];
-        // typename container::iterator itF = large.begin();
-        // std::advance(itF, indexF);
+        for (typename container::iterator it = large.begin(); it != large.end(); ++it)
+            std::cout << *it << " ";
+        std::cout << std::endl;
+
+// dinamic array of iterators to elements in "large"
+        typename container::iterator rangeEnd = large.begin();
+        std::advance(rangeEnd, prev + k);
         
         typename container::iterator pos =
-            std::lower_bound(large.begin(), large.end(), small[prev + k - 1]);
+        std::lower_bound(large.begin(), rangeEnd, small[prev + k - 1]);
         large.insert(pos, small[prev + k - 1]);
-        mainChain = large;
+        std::cout << std::endl;
     }
 }
 
+mainChain = large;
 return mainChain;
 };
 
