@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antek <antek@student.42.fr>                +#+  +:+       +#+        */
+/*   By: agorski <agorski@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:54:06 by agorski           #+#    #+#             */
-/*   Updated: 2025/11/13 01:21:31 by antek            ###   ########.fr       */
+/*   Updated: 2025/11/15 20:05:01 by agorski          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,29 +99,60 @@ while (i + 1 < input.size())
     if (input[i] < input[i + 1])
     {
         small.push_back(input[i]);
-        std::cout << "small insert: " << input[i] << std::endl;
         large.push_back(input[i + 1]);
-        std::cout << "large insert: " << input[i + 1] << std::endl;
     }
     else
     {
         small.push_back(input[i + 1]);
-        std::cout << "large insert: " << input[i] << std::endl;
         large.push_back(input[i]);
-        std::cout << "small insert: " << input[i + 1] << std::endl;
     }
     i += 2;
 }
 
 // 2. Handle odd element
+int oddElement = -1;
+bool hasOdd = false;
 if (input.size() % 2 != 0)
 {
-    small.push_back(input.back());
-    std::cout << "odd small insert: " << input.back() << std::endl;
+    oddElement = input.back();
+    hasOdd = true;
+}
+
+struct pair
+{
+    int orgLarge;
+    int orgSmall;
+};
+
+pair p[small.size()];
+
+for (size_t i = 0; i < small.size(); ++i)
+{
+    p[i].orgSmall = small[i];
+    p[i].orgLarge = large[i];
 }
 
 // 2. Sort "large" elements recursively
 large = FordJohnsonSort(large);
+
+//reorder small according to large
+container tempSmall;
+for (typename container::iterator it = large.begin(); it != large.end(); ++it)
+{
+    for (size_t j = 0; j < small.size(); ++j)
+    {
+        if (*it == p[j].orgLarge)
+        {
+            tempSmall.push_back(p[j].orgSmall);
+            break;
+        }
+    }
+}
+
+small = tempSmall;
+
+if (hasOdd)
+    small.push_back(oddElement);
 
 int JacobsonArray[12] = { 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731 };
 
@@ -140,20 +171,14 @@ for (size_t j = 0; j < 12; ++j)
     }
     for (size_t k = elementsToInsert; k > 0; --k)
     {          
-        std::cout << "large order: ";
         
-        for (typename container::iterator it = large.begin(); it != large.end(); ++it)
-            std::cout << *it << " ";
-        std::cout << std::endl;
-
-// dinamic array of iterators to elements in "large"
+        // dinamic array of iterators to elements in "large"
         typename container::iterator rangeEnd = large.begin();
         std::advance(rangeEnd, prev + k);
-        
+
         typename container::iterator pos =
         std::lower_bound(large.begin(), rangeEnd, small[prev + k - 1]);
         large.insert(pos, small[prev + k - 1]);
-        std::cout << std::endl;
     }
 }
 
